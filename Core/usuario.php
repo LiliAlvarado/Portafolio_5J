@@ -39,5 +39,13 @@
             $consulta->execute();
             return true;
         }
+        public function EliminarUsuario($id){
+            include '../conexion.php'; 
+            $conectar= new conexion();
+            $consulta=$conectar->prepare("DELETE FROM usuarios WHERE Id=:id");
+            $consulta->bindParam(":Id",$id,PDO::PARAM_STR);
+            $consulta->execute();
+            return true;
+        }
     }
 ?>
